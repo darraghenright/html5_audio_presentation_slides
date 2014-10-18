@@ -1,0 +1,94 @@
+a very incomplete history of computer music
+
+varése and russolo?
+
+fifties
+
+1950
+CSIRAC - Australia's first computer
+
+1951
+Ferranti Mark 1 - first recorded
+https://www.youtube.com/watch?v=2i2ylXomcSo
+
+1957
+Max Mathews MUSIC first of the MUSIC-N series, daddy of computer music software
+The first computer program for generating digital audio waveforms through direct synthesis.
+
+sixties
+
+1961
+IBM 7090 - the first computer to "sing"
+daisy bell
+https://www.youtube.com/watch?v=41U78QP8nBk
+
+[image of hal 9000]
+
+seventies
+
+development of FM synthesis
+
+eighties
+
+1982
+8 bit computers e.g commodore 64
+
+1984
+csound
+barry vercoe
+
+bleep.orc
+
+          instr 2
+a1        oscil     p4, p5, 1      ; p4=amp
+          out       a1             ; p5=freq
+          endin
+
+bleep.sco
+
+f1   0    4096 10 1      ; sine wave
+
+;ins strt dur  amp(p4)   freq(p5)
+i2   0    1    2000      880
+i2   1.5  1    4000      440
+i2   3    1    8000      220
+i2   4.5  1    16000     110
+i2   6    1    32000     55
+
+e
+
+
+
+
+nineties
+
+lots of freeware/shareware software available on the web
+
+
+including
+
+stomper
+hammerhead rhythm station
+vaz
+rebirth rb-338
+
+yadda yadda..
+
+present day
+
+computer based recording and synthesis has taken over.
+
+what has this to do with html5?
+specifically the web audio api
+
+more than the <audio> tag (although that's cool)
+
+May 23, 2012
+
+
+until now, audio sotware runs natively... c c++ etc
+
+but now
+
+"any application that can be written in JavaScript, will eventually be written in JavaScript." - Atwood's Law
+

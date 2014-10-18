@@ -1,0 +1,22 @@
+examples:
+
+audiobuffer
+
+    looping
+        http://localhost:3000/raw/1/edit
+
+
+basic
+
+    http://localhost:3000/tex/3/edit
+
+periodic wave
+
+    http://localhost:3000/haf/1/edit
+
+gain
+
+    http://localhost:3000/kag/1/edit
+    
+
+

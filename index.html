@@ -1,394 +1,732 @@
 <!doctype html>
 <html lang="en">
 
-	<head>
-		<meta charset="utf-8">
+    <head>
+        <meta charset="utf-8">
 
-		<title>reveal.js - The HTML Presentation Framework</title>
+        <title>HTML5 Web Audio API</title>
 
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
+        <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+        <meta name="author" content="Hakim El Hattab">
 
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="css/reveal.min.css">
-		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+        <link rel="stylesheet" href="css/reveal.min.css">
+        <link rel="stylesheet" href="css/theme/simple.css" id="theme">
 
-		<!-- For syntax highlighting -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+        <!-- For syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/github.css">
 
-		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
-		<script>
-			if( window.location.search.match( /print-pdf/gi ) ) {
-				var link = document.createElement( 'link' );
-				link.rel = 'stylesheet';
-				link.type = 'text/css';
-				link.href = 'css/print/pdf.css';
-				document.getElementsByTagName( 'head' )[0].appendChild( link );
-			}
-		</script>
+        <style>
 
-		<!--[if lt IE 9]>
-		<script src="lib/js/html5shiv.js"></script>
-		<![endif]-->
-	</head>
+        /* override theme image styles */
+        .reveal section img
+        {
+            border: none;
+            box-shadow: none;
+        }
 
-	<body>
+        .reveal pre
+        {
+            box-shadow: none;
+        }
+        </style>
 
-		<div class="reveal">
+        <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+        <script>
+            if( window.location.search.match( /print-pdf/gi ) ) {
+                var link = document.createElement( 'link' );
+                link.rel = 'stylesheet';
+                link.type = 'text/css';
+                link.href = 'css/print/pdf.css';
+                document.getElementsByTagName( 'head' )[0].appendChild( link );
+            }
+        </script>
 
-			<!-- Any section element inside of this container is displayed as a slide -->
-			<div class="slides">
-				<section>
-					<h1>Reveal.js</h1>
-					<h3>HTML Presentations Made Easy</h3>
-					<p>
-						<small>Created by <a href="http://hakim.se">Hakim El Hattab</a> / <a href="http://twitter.com/hakimel">@hakimel</a></small>
-					</p>
-				</section>
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
 
-				<section>
-					<h2>Heads Up</h2>
-					<p>
-						reveal.js is a framework for easily creating beautiful presentations using HTML. You'll need a browser with
-						support for CSS 3D transforms to see it in its full glory.
-					</p>
+    <body>
 
-					<aside class="notes">
-						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
-					</aside>
-				</section>
+        <div class="reveal">
 
-				<!-- Example of nested vertical slides -->
-				<section>
-					<section>
-						<h2>Vertical Slides</h2>
-						<p>
-							Slides can be nested inside of other slides,
-							try pressing <a href="#" class="navigate-down">down</a>.
-						</p>
-						<a href="#" class="image navigate-down">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section>
-						<h2>Basement Level 1</h2>
-						<p>Press down or up to navigate.</p>
-					</section>
-					<section>
-						<h2>Basement Level 2</h2>
-						<p>Cornify</p>
-						<a class="test" href="http://cornify.com">
-							<img width="280" height="326" src="https://s3.amazonaws.com/hakim-static/reveal-js/cornify.gif" alt="Unicorn">
-						</a>
-					</section>
-					<section>
-						<h2>Basement Level 3</h2>
-						<p>That's it, time to go back up.</p>
-						<a href="#/2" class="image">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="-webkit-transform: rotate(180deg);">
-						</a>
-					</section>
-				</section>
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
 
-				<section>
-					<h2>Slides</h2>
-					<p>
-						Not a coder? No problem. There's a fully-featured visual editor for authoring these, try it out at <a href="http://slid.es" target="_blank">http://slid.es</a>.
-					</p>
-				</section>
+<!--  -->
 
-				<section>
-					<h2>Point of View</h2>
-					<p>
-						Press <strong>ESC</strong> to enter the slide overview.
-					</p>
-					<p>
-						Hold down alt and click on any element to zoom in on it using <a href="http://lab.hakim.se/zoom-js">zoom.js</a>. Alt + click anywhere to zoom back out.
-					</p>
-				</section>
+<section>
+    <h1>A quick peek at HTML5 Web Audio API</h1>
+</section>
 
-				<section>
-					<h2>Works in Mobile Safari</h2>
-					<p>
-						Try it out! You can swipe through the slides and pinch your way to the overview.
-					</p>
-				</section>
+<section>
+    <h2>00. Hello</h2>
+</section>
 
-				<section>
-					<h2>Marvelous Unordered List</h2>
-					<ul>
-						<li>No order here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-					</ul>
-				</section>
+<section>
+    <img src="img/avatar.jpg" alt="">
+    <p>twitter.com/darragh_enright</p>
+</section>
 
-				<section>
-					<h2>Fantastic Ordered List</h2>
-					<ol>
-						<li>One is smaller than...</li>
-						<li>Two is smaller than...</li>
-						<li>Three!</li>
-					</ol>
-				</section>
+<section>
+    <h2>01. An incomplete history of computer music</h2>
+</section>
 
-				<section data-markdown>
-					<script type="text/template">
-						## Markdown support
+<section>
+    <h3>1950</h3>
+    <p>CSIRAC is Australia's first digital computer. It is also the first computer ever to be used to create music.
+    </p>
+</section>
 
-						For those of you who like that sort of thing. Instructions and a bit more info available [here](https://github.com/hakimel/reveal.js#markdown).
+<section>
+    <h3>1951</h3>
+    <p>The Ferranti Mark 1 at the University of Manchester is used to create the  oldest recorded computer music, including <a href="https://www.youtube.com/watch?v=2i2ylXomcSo">"God save the King" and "Baa Baa Black Sheep"</a></p>
+    <audio id="listen-baa" src="mp3/ferranti.mp3" controls></audio>
+    <script>
+    var baa = document.querySelector('#listen-baa');
+    baa.addEventListener('canplaythrough', function() {
+      this.currentTime = 32;
+      //this.play();
+    });
+    </script>
+</section>
 
-						```
-						<section data-markdown>
-						  ## Markdown support
+<section>
+    <h3>1957</h3>
+    <p>Max Mathews writes MUSIC at Bell Labs. It's the first computer program for generating digital audio waveforms through direct synthesis.
+    <p class="fragment">It is the first in a series of MUSIC-N software, which becomes inspiration for many subsequent computer music applications.</p>
+</section>
 
-						  For those of you who like that sort of thing.
-						  Instructions and a bit more info available [here](https://github.com/hakimel/reveal.js#markdown).
-						</section>
-						```
-					</script>
-				</section>
+<section>
+    <h3>1961</h3>
+    <p>The IBM 7090 is the first computer to "sing" a song called <a href="https://www.youtube.com/watch?v=41U78QP8nBk">"Daisy Bell"</a></p>
+    <div><img src="img/7090.jpg"></div>
+    <div><audio id="listen-daisy" src="mp3/daisy.mp3" controls></audio></div>
+    <script>
+    var daisy = document.querySelector('#listen-daisy');
+    daisy.addEventListener('canplaythrough', function() {
+      this.currentTime = 64;
+      //this.play();
+    });
+    </script>
+</section>
 
-				<section id="transitions">
-					<h2>Transition Styles</h2>
-					<p>
-						You can select from different transitions, like: <br>
-						<a href="?transition=cube#/transitions">Cube</a> -
-						<a href="?transition=page#/transitions">Page</a> -
-						<a href="?transition=concave#/transitions">Concave</a> -
-						<a href="?transition=zoom#/transitions">Zoom</a> -
-						<a href="?transition=linear#/transitions">Linear</a> -
-						<a href="?transition=fade#/transitions">Fade</a> -
-						<a href="?transition=none#/transitions">None</a> -
-						<a href="?#/transitions">Default</a>
-					</p>
-				</section>
+<section>
+    <p>:o</p>
+    <img src="img/hal.jpg">
+</section>
 
-				<section id="themes">
-					<h2>Themes</h2>
-					<p>
-						Reveal.js comes with a few themes built in: <br>
-						<a href="?#/themes">Default</a> -
-						<a href="?theme=sky#/themes">Sky</a> -
-						<a href="?theme=beige#/themes">Beige</a> -
-						<a href="?theme=simple#/themes">Simple</a> -
-						<a href="?theme=serif#/themes">Serif</a> -
-						<a href="?theme=night#/themes">Night</a> <br>
-						<a href="?theme=moon#/themes">Moon</a> -
-						<a href="?theme=solarized#/themes">Solarized</a>
-					</p>
-					<p>
-						<small>
-							* Theme demos are loaded after the presentation which leads to flicker. In production you should load your theme in the <code>&lt;head&gt;</code> using a <code>&lt;link&gt;</code>.
-						</small>
-					</p>
-				</section>
+<section>
+    <h3>^197[0-9]$</h3>
+    <p>Development of FM synthesis</p>
+    <img src="img/fm.png" alt="">
+    <p class="fragment">And... Probably lots of other really exciting stuff?</p>
+</section>
 
-				<section>
-					<h2>Global State</h2>
-					<p>
-						Set <code>data-state="something"</code> on a slide and <code>"something"</code>
-						will be added as a class to the document element when the slide is open. This lets you
-						apply broader style changes, like switching the background.
-					</p>
-				</section>
+<section>
+    <img src="img/arp.jpg" alt="">
+</section>
 
-				<section data-state="customevent">
-					<h2>Custom Events</h2>
-					<p>
-						Additionally custom events can be triggered on a per slide basis by binding to the <code>data-state</code> name.
-					</p>
-					<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-Reveal.addEventListener( 'customevent', function() {
-	console.log( '"customevent" has fired' );
-} );
-					</code></pre>
-				</section>
+<section>
+    <h2>1982</h2>
+    <p>Commodore 64 is released. 8-bit computers are starting to become commonplace in the home. Games == music.</p>
+</section>
 
-				<section>
-					<section data-background="#007777">
-						<h2>Slide Backgrounds</h2>
-						<p>
-							Set <code>data-background="#007777"</code> on a slide to change the full page background to the given color. All CSS color formats are supported.
-						</p>
-						<a href="#" class="image navigate-down">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png">
-						<h2>Image Backgrounds</h2>
-						<pre><code>&lt;section data-background="image.png"&gt;</code></pre>
-					</section>
-					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" data-background-repeat="repeat" data-background-size="100px">
-						<h2>Repeated Image Backgrounds</h2>
-						<pre><code style="word-wrap: break-word;">&lt;section data-background="image.png" data-background-repeat="repeat" data-background-size="100px"&gt;</code></pre>
-					</section>
-				</section>
+<section>
+    <h3>1983</h3>
+    <p>MIDI (Music Instrument Digital Interface) Specification is published, defining a protocol to allow music instruments (and eventually computers) to talk to each other</p>
+</section>
 
-				<section data-transition="linear" data-background="#4d7e65" data-background-transition="slide">
-					<h2>Background Transitions</h2>
-					<p>
-						Pass reveal.js the <code>backgroundTransition: 'slide'</code> config argument to make backgrounds slide rather than fade.
-					</p>
-				</section>
+<section>
+    <h3>1984</h3>
+    <p>Barry Vercoe creates CSOUND</p>
+    <pre><code>
+          instr 2
+a1        oscil     p4, p5, 1      ; p4=amp
+          out       a1             ; p5=freq
+          endin
+    </code></pre>
 
-				<section data-transition="linear" data-background="#8c4738" data-background-transition="slide">
-					<h2>Background Transition Override</h2>
-					<p>
-						You can override background transitions per slide by using <code>data-background-transition="slide"</code>.
-					</p>
-				</section>
+<pre><code>
+f1   0    4096 10 1      ; sine wave
 
-				<section>
-					<h2>Clever Quotes</h2>
-					<p>
-						These guys come in two forms, inline: <q cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						&ldquo;The nice thing about standards is that there are so many to choose from&rdquo;</q> and block:
-					</p>
-					<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						&ldquo;For years there has been a theory that millions of monkeys typing at random on millions of typewriters would
-						reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.&rdquo;
-					</blockquote>
-				</section>
+;ins strt dur  amp(p4)   freq(p5)
+i2   0    1    2000      880
+i2   1.5  1    4000      440
+i2   3    1    8000      220
+i2   4.5  1    16000     110
+i2   6    1    32000     55
 
-				<section>
-					<h2>Pretty Code</h2>
-					<pre><code data-trim contenteditable>
-function linkify( selector ) {
-  if( supports3DTransforms ) {
+e
+</code></pre>
+</section>
 
-    var nodes = document.querySelectorAll( selector );
+<section>
 
-    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
-      var node = nodes[i];
+<h3>1985</h3>
+<p>Atari ST is released</p>
+</section>
+<section>
+<h3>1987</h3>
+<p>Commodore Amiga 500 is released. The Amiga quickly becomes a popular platform for Music Tracker software</p>
+<img src="img/tracker.png" alt="">
+</section>
+<section>
+<h3>1989</h3>
+<p>MIDI sequencer Cubase 1.0 is released on the Atari ST</p>
+<img src="img/cubase.jpg">
+</section>
 
-      if( !node.className ) {
-        node.className += ' roll';
-      }
-    }
-  }
-}
-					</code></pre>
-					<p>Courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
-				</section>
+<section>
+    <h3>^199[0-9]$</h3>
+    <p>By now there are tons of freeware/shareware software available on the web.</p>
+</section>
 
-				<section>
-					<h2>Intergalactic Interconnections</h2>
-					<p>
-						You can link between slides internally,
-						<a href="#/2/3">like this</a>.
-					</p>
-				</section>
+<section>
+    <h4>Stomper Ultra++</h4>
+    <img src="img/stomper.gif" alt="">
+</section>
 
-				<section>
-					<section id="fragments">
-						<h2>Fragmented Views</h2>
-						<p>Hit the next arrow...</p>
-						<p class="fragment">... to step through ...</p>
-						<ol>
-							<li class="fragment"><code>any type</code></li>
-							<li class="fragment"><em>of view</em></li>
-							<li class="fragment"><strong>fragments</strong></li>
-						</ol>
+<section>
+    <h4>HammerHead Rhythm Station</h4>
+    <img src="img/hammerhead.gif" alt="">
+</section>
 
-						<aside class="notes">
-							This slide has fragments which are also stepped through in the notes window.
-						</aside>
-					</section>
-					<section>
-						<h2>Fragment Styles</h2>
-						<p>There's a few styles of fragments, like:</p>
-						<p class="fragment grow">grow</p>
-						<p class="fragment shrink">shrink</p>
-						<p class="fragment roll-in">roll-in</p>
-						<p class="fragment fade-out">fade-out</p>
-						<p class="fragment highlight-red">highlight-red</p>
-						<p class="fragment highlight-green">highlight-green</p>
-						<p class="fragment highlight-blue">highlight-blue</p>
-						<p class="fragment current-visible">current-visible</p>
-						<p class="fragment highlight-current-blue">highlight-current-blue</p>
-					</section>
-				</section>
+<section>
+    <h4>Vaz Plus</h4>
+    <img src="img/vaz.jpg" alt="">
+</section>
 
-				<section>
-					<h2>Spectacular image!</h2>
-					<a class="image" href="http://lab.hakim.se/meny/" target="_blank">
-						<img width="320" height="299" src="http://s3.amazonaws.com/hakim-static/portfolio/images/meny.png" alt="Meny">
-					</a>
-				</section>
+<section>
+    <h4>Rebirth RB-338</h4>
+    <img src="img/rebirth.png" alt="">
+</section>
 
-				<section>
-					<h2>Export to PDF</h2>
-					<p>Presentations can be <a href="https://github.com/hakimel/reveal.js#pdf-export">exported to PDF</a>, below is an example that's been uploaded to SlideShare.</p>
-					<iframe id="slideshare" src="http://www.slideshare.net/slideshow/embed_code/13872948" width="455" height="356" style="margin:0;overflow:hidden;border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen> </iframe>
-					<script>
-						document.getElementById('slideshare').attributeName = 'allowfullscreen';
-					</script>
-				</section>
+<section>
+    <p>etc.</p>
+</section>
 
-				<section>
-					<h2>Take a Moment</h2>
-					<p>
-						Press b or period on your keyboard to enter the 'paused' mode. This mode is helpful when you want to take distracting slides off the screen
-						during a presentation.
-					</p>
-				</section>
+<section>
+    <h2>Present Day</h2>
+</section>
 
-				<section>
-					<h2>Stellar Links</h2>
-					<ul>
-						<li><a href="http://slid.es">Try the online editor</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js">Source code on GitHub</a></li>
-						<li><a href="http://twitter.com/hakimel">Follow me on Twitter</a></li>
-					</ul>
-				</section>
+<section>
+    <p>Computer based recording and synthesis is incredibly powerful.</p>
+    <p>Run a real-time studio environment in a domestic machine: recording, synthesis, effects, mixing etc.</p>
+    <img src="img/logic.jpg" alt="">
+</section>
 
-				<section>
-					<h1>THE END</h1>
-					<h3>BY Hakim El Hattab / hakim.se</h3>
-				</section>
+<section>
+    <h2>But.. what does this have to do with HTML5?</h2>
+</section>
 
-			</div>
+<section>
+    <p>Not a lot? Most computer music software runs natively, written for high performance, typically in languages like C/C++.</p>
+    <p>But...</p>
+</section>
 
-		</div>
+<section>
+    <h3>May 23rd, 2012</h3>
+    <p>Google released a <a href="http://www.google.com/doodles/robert-moogs-78th-birthday">Doodle</a> celebrating the 78th (posthumous) birthday of Robert Moog</p>
+    <img src="img/moogle.png" alt="">
+    <p>A playable, recordable Minimoog (moogle?) in your browser!</p>
+</section>
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.min.js"></script>
+<section>
+    <p>
+        "Much like the musical machines Bob Moog created, this doodle was synthesized from a number of smaller components to form a unique instrument. <strong>When experienced with Google Chrome, sound is generated natively using the Web Audio API</strong> — a doodle first (for other browsers the Flash plugin is used)."
+    </p>
+    <h3>Wait... what?</h3>
+</section>
 
-		<script>
+<section>
+    <p>HTML5 has a Web Audio API!?</p>
+</section>
 
-			// Full list of configuration options available here:
-			// https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				controls: true,
-				progress: true,
-				history: true,
-				center: true,
+<section>
+    "Any application that can be written in JavaScript, will eventually be written in JavaScript." - <a href="http://blog.codinghorror.com/the-principle-of-least-power/">Atwood's Law</a>
+</section>
 
-				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+<section>
+    <img src="img/html5.png" alt="">
+    <h2>02. HTML5 Web Audio API</h2>
+</section>
 
-				// Parallax scrolling
-				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
-				// parallaxBackgroundSize: '2100px 900px',
+<section>
+    <p>More than just the <code>&lt;audio&gt;</code> tag</p>
+</section>
 
-				// Optional libraries used to extend on reveal.js
-				dependencies: [
-					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
-				]
-			});
+<section>
+    <p>"HTML5 Audio is a subject of the HTML5 specification, investigating audio input, playback, synthesis, as well as speech to text in the browser." - <a href="http://en.wikipedia.org/wiki/HTML5_Audio">Wikipedia</a></p>
+</section>
 
-		</script>
+<section>
+    <img src="img/caniuse.png" alt="">
+</section>
 
-	</body>
+<section>
+    <h3>W3C Working Draft 10 October 2013</h3>
+    <a href="http://www.w3.org/TR/webaudio/">http://www.w3.org/TR/webaudio/</a>
+</section>
+
+<section>
+    <h3>Features?</h3>
+    <a href="http://www.w3.org/TR/webaudio/#Features">W3C Working Draft 10 October 2013</a>
+</section>
+
+<section>
+    <section>Modular routing for simple or complex mixing/effect architectures, including multiple sends and submixes.</section>
+
+<section>Sample-accurate scheduled sound playback with low latency for musical applications requiring a very high degree of rhythmic precision such as drum machines and sequencers. This also includes the possibility of dynamic creation of effects.</section>
+
+<section>Automation of audio parameters for envelopes, fade-ins / fade-outs, granular effects, filter sweeps, LFOs etc.</section>
+
+<section>Flexible handling of channels in an audio stream, allowing them to be split and merged.</section>
+
+<section>Processing of audio sources from an audio or video media element.</section>
+
+<section>Processing live audio input using a MediaStream from getUserMedia().</section>
+
+<section>Integration with WebRTC</section>
+
+<section>Audio stream synthesis and processing directly in JavaScript.</section>
+
+<section>Spatialized audio supporting a wide range of 3D games and immersive environments; e.g: panning, distance etc.</section>
+
+<section>A convolution engine for a wide range of linear effects, especially very high-quality room effects; e.g: room, hall, backwards/extreme etc.</section>
+
+<section>Dynamics compression for overall control and sweetening of the mix.</section>
+
+<section>Efficient real-time time-domain and frequency analysis / music visualizer support.</section>
+
+<section>Efficient biquad filters for lowpass, highpass, and other common filters.</section>
+
+<section>A Waveshaping effect for distortion and other non-linear effects</section>
+
+<section>Oscillators</section>
+</section>
+
+<section>
+    <h3>Modular Routing</h3>
+    <img src="img/modular.jpg" alt="">
+</section>
+
+<section>
+    <p>"Modular routing allows arbitrary connections between different AudioNode objects. Each node can have inputs and/or outputs. A source node has no inputs and a single output. A destination node has one input and no outputs"</p>
+    <img class="fragment" src="img/system.gif" alt="">
+</section>
+
+<section>
+    <h2>03. Nodes and Example Usage</h2>
+</section>
+
+<section>
+    <h3>AudioContext()</h3>
+    <p>"Represents a set of <code>AudioNode</code> objects and their connections. It allows for arbitrary routing of signals to the <code>AudioDestinationNode</code> (what the user ultimately hears)."</p>
+        <a href="http://www.w3.org/TR/webaudio/#AudioContext-section">#AudioContext-section</a>
+</section>
+
+<section>
+    "In most use cases, only a single <code>AudioContext</code> is used per document."
+</section>
+
+<section>
+<p>"Nodes are created from the context and are then connected together."</p>
+    <pre><code>
+// webkitAudioContext in Chrome
+var context = new AudioContext();
+
+// create oscillator (for waveform synthesis)
+var oscillator = context.createOscillator();
+
+// create gain (for volume control/mixing)
+var gain = context.createGainNode();
+
+// create filter (for sound shaping)
+var filter = context.createBiquadFilter();
+
+// create source (for sample playback)
+var source = context.createBufferSource();
+
+// etc.
+    </code></pre>
+</section>
+
+<section>
+    <h3>AudioBufferSourceNode()</h3>
+    "Represents an audio source from an in-memory audio asset in an <code>AudioBuffer</code>. It is useful for playing short audio assets which require a high degree of scheduling flexibility."
+    <img src="img/waveform.gif" alt="">
+</section>
+
+<section>
+ <a href="http://www.w3.org/TR/webaudio/#AudioBufferSourceNode-section">#AudioBufferSourceNode-section</a>
+<pre><code>interface AudioBufferSourceNode : AudioNode {
+
+    attribute AudioBuffer? buffer;
+
+    readonly attribute AudioParam playbackRate;
+
+    attribute boolean loop;
+    attribute double  loopStart;
+    attribute double  loopEnd;
+
+    void start(optional double when = 0,
+               optional double offset = 0,
+               optional double duration);
+
+    void stop(optional double when = 0);
+
+    attribute EventHandler onended;
+};
+        </code>
+    </pre>
+</section>
+
+<section>
+<h3>Play a .wav file</h3>
+<pre><code>var file = 'http://localhost/break/melvin.wav',
+    context,
+    request;
+
+// create an AudioContext object
+// note webkit* prefix here
+context = new webkitAudioContext(),
+
+// load a file as an arraybuffer
+request  = new XMLHttpRequest(),
+request.open('GET', file, true);
+request.responseType = 'arraybuffer';
+
+// load handler
+request.onload = function() {
+
+  // decode loaded arraybuffer data
+  context.decodeAudioData(request.response, function(buffer) {
+
+    // create AudioBufferSourceNode object
+    var source = context.createBufferSource();
+
+    // connect to AudioDestinationNode (speakers)
+    source.connect(context.destination);
+    source.buffer = buffer;
+
+    // playback options
+    source.loop = true;
+    source.loopStart = buffer.duration / 2;
+    source.loopEnd = buffer.duration;
+    source.playbackRate.value = 1;
+    source.start(0);
+  });
+};
+
+request.send();
+</code></pre>
+</section>
+
+<section>
+<h3>Play a .wav file</h3>
+<a class="jsbin-embed" href="http://localhost:3000/raw/1/embed?js,output">JS Bin</a><script src="http://localhost:3000/js/embed.js"></script>
+</section>
+
+<section>
+    <h3>Trigger samples with keypress events</h3>
+    <a href="http://localhost/trigger/trigger.html">View</a>
+</section>
+
+<section>
+    <h3>OscillatorNode()</h3>
+    <p>"Represents an audio source generating a periodic waveform. It can be set to a few commonly used waveforms. Additionally, it can be set to an arbitrary periodic waveform through the use of a <code>PeriodicWave</code> object."</p>
+    <img src="img/waveform.png" alt="">
+</section>
+
+<section>
+    <a href="http://www.w3.org/TR/webaudio/#OscillatorNode">#OscillatorNode</a>
+<pre><code>interface OscillatorNode : AudioNode {
+
+    attribute OscillatorType type;
+
+    readonly attribute AudioParam frequency; // in Hertz
+    readonly attribute AudioParam detune; // in Cents
+
+    void start(double when);
+    void stop(double when);
+    void setPeriodicWave(PeriodicWave periodicWave);
+
+    attribute EventHandler onended;
+
+};</code></pre>
+</section>
+
+<section>
+    <h3>Basic synthesis</h3>
+    <p><code>OscillatorNode()</code> &#10141; <code>AudioDestinationNode()</code></p>
+    <img src="img/_route_01.png" alt="">
+</section>
+
+<section>
+    <h3>Basic synthesis</h3>
+<pre><code>var context,
+    oscillator;
+
+// create an AudioContext object
+context = new webkitAudioContext();
+
+// create an OscillatorNode object
+oscillator = context.createOscillator();
+
+// wire up nodes
+// OscillatorNode -> AudioDestinationNode
+oscillator.connect(context.destination);
+
+// now we can make some noise...
+
+// sine, triangle, square, sawtooth, custom
+oscillator.type = 'sine';
+oscillator.frequency.value = 220;
+
+// play note for 2 seconds
+oscillator.start(0);
+  oscillator.stop(2);
+
+</code></pre>
+</section>
+
+<section>
+<h3>Basic synthesis</h3>
+<a class="jsbin-embed" href="http://localhost:3000/tex/4/embed?js,output">JS Bin</a><script src="http://localhost:3000/js/embed.js"></script>
+</section>
+<section>
+    <h3>PeriodicWave()</h3>
+    <p>Customised waveforms</p>
+<a class="jsbin-embed" href="http://localhost:3000/haf/2/embed?js,output">JS Bin</a><script src="http://localhost:3000/js/embed.js"></script>
+</section>
+
+<section>
+    <h3>GainNode()</h3>
+    <p>"Changing the gain of an audio signal is a fundamental operation in audio applications. The GainNode is one of the building blocks for creating mixers."</p>
+    <img src="img/gain.jpg" alt="">
+</section>
+
+<section>
+    <a href="http://www.w3.org/TR/webaudio/#GainNode-section">#GainNode-section</a>
+    <pre><code>
+interface GainNode : AudioNode {
+    attribute AudioParam gain;
+};
+    </code></pre>
+</section>
+
+<section>
+    <h3>Adding volume control</h3>
+    <p><code>OscillatorNode()</code> &#10141; <code>GainNode()</code> &#10141; <code>AudioDestinationNode()</code></p>
+    <img src="img/_route_02.png" alt="">
+</section>
+
+<section>
+    <h3>Adding volume control</h3>
+    <a class="jsbin-embed" href="http://localhost:3000/kag/1/embed?js,output">JS Bin</a><script src="http://localhost:3000/js/embed.js"></script>
+</section>
+
+<section>
+    <h3>AudioParam()</h3>
+    <p>"Controls an individual aspect of an <code>AudioNode</code>'s functioning, such as volume. The parameter can be set immediately to a particular value using the value attribute. Or, value changes can be scheduled to happen at very precise times for envelopes, volume fades, LFOs, filter sweeps, grain windows, etc."</p>
+</section>
+
+<section>
+    <a href="http://www.w3.org/TR/webaudio/#AudioParam">#AudioParam</a>
+    <pre><code>
+interface AudioParam {
+
+    attribute float value;
+    readonly attribute float defaultValue;
+
+    // Parameter automation.
+    void setValueAtTime(float value, double startTime);
+    void linearRampToValueAtTime(float value, double endTime);
+    void exponentialRampToValueAtTime(float value, double endTime);
+
+    // Exponentially approach the target value
+    // with a rate having the given time constant.
+    void setTargetAtTime(float target,
+                         double startTime,
+                         double timeConstant);
+
+    // Sets an array of arbitrary parameter values
+    // starting at time for the given duration.
+    // The number of values will be scaled to
+    // fit into the desired duration.
+    void setValueCurveAtTime(Float32Array values,
+                             double startTime,
+                             double duration);
+
+    // Cancels all scheduled parameter changes
+    // with times greater than or equal to startTime.
+    void cancelScheduledValues(double startTime);
+
+};
+    </code></pre>
+</section>
+
+<section>
+    <h3>Amplitude Modulation (AM)</h3>
+    <img src="img/am.png" alt="">
+</section>
+
+<section>
+    <p>"<strong>Amplitude Modulation Synthesis</strong> is a type of sound synthesis where the gain of one signal is controlled, or modulated, by the gain of another signal. The signal whose gain is being modulated is called the <strong>carrier</strong>, and the signal responsible for the modulation is called the <strong>modulator</strong>."</p>
+    <a href="http://en.flossmanuals.net/pure-data/audio-tutorials/amplitude-modulation/">flossmanuals.net/</a>
+</section>
+
+<section>
+<img src="img/am_route.png" alt="">
+<pre><code>
+var context   = new AudioContext(),
+    carrier   = context.createOscillator(),
+    modulator = context.createOscillator(),
+    gainNode  = context.createGainNode();
+
+carrier.connect(gainNode);
+gainNode.connect(context.destination);
+modulator.connect(this.gainNode.gain);
+    </code></pre>
+</section>
+
+<section>
+    <p>AM Example #1</p>
+    <a class="jsbin-embed" href="http://localhost:3000/jaj/1/embed?js,output">JS Bin</a><script src="http://localhost:3000/js/embed.js"></script>
+</section>
+
+<section>
+    <p>AM Example #2</p>
+    <a class="jsbin-embed" href="http://localhost:3000/mug/1/embed?js,output">JS Bin</a><script src="http://localhost:3000/js/embed.js"></script>
+</section>
+
+<section>
+    <h3>Frequency Modulation (FM)</h3>
+    <img src="img/fm.png" alt="">
+</section>
+
+<section>
+    <p>"<strong>Frequency Modulation Synthesis</strong> is used to make periodic changes to the frequency of an oscillator. In its simplest form, Frequency Modulation uses two oscillators. The first is the <strong>carrier</strong> oscillator, which is the one whose frequency will be changed over time. The second is the <strong>modulator</strong> oscillator, which will change the frequency of the carrier."</p>
+    <a href="http://en.flossmanuals.net/pure-data/audio-tutorials/frequency-modulation/">flossmanuals.net</a>
+</section>
+
+<section>
+<img src="img/fm_route.png" alt="">
+<pre><code>
+var context = new webkitAudioContext(),
+    carrier = context.createOscillator(),
+    modulator = context.createOscillator(),
+    modulatorGain = context.createGainNode();
+
+carrier.connect(context.destination);
+modulator.connect(modulatorGain);
+modulatorGain.connect(carrier.frequency);
+
+</code></pre>
+</section>
+
+<section>
+    <p>FM Example #1</p>
+    <a class="jsbin-embed" href="http://localhost:3000/log/1/embed?js,output">JS Bin</a><script src="http://localhost:3000/js/embed.js"></script>
+</section>
+
+<section>
+    <p>FM Example #2</p>
+    <a class="jsbin-embed" href="http://localhost:3000/cab/2/embed?js,output">JS Bin</a><script src="http://localhost:3000/js/embed.js"></script>
+</section>
+
+<section>
+    <h3>BiquadFilterNode()</h3>
+    <p>"BiquadFilterNode is an AudioNode processor implementing very common low-order filters. Low-order filters are the building blocks of basic tone controls (bass, mid, treble), graphic equalizers, and more advanced filters. Multiple BiquadFilterNode filters can be combined to form more complex filters."</p>
+    <a href="http://www.w3.org/TR/webaudio/#BiquadFilterNode">#BiquadFilterNode</a>
+</section>
+
+<section>
+    <pre><code>enum BiquadFilterType {
+  "lowpass",
+  "highpass",
+  "bandpass",
+  "lowshelf",
+  "highshelf",
+  "peaking",
+  "notch",
+  "allpass"
+};
+    </code></pre>
+</section>
+
+<section>
+    <pre><code>
+interface BiquadFilterNode : AudioNode {
+
+    attribute BiquadFilterType type;
+    readonly attribute AudioParam frequency; // in Hertz
+    readonly attribute AudioParam detune; // in Cents
+    readonly attribute AudioParam Q; // Quality factor
+    readonly attribute AudioParam gain; // in Decibels
+
+    void getFrequencyResponse(Float32Array frequencyHz,
+                              Float32Array magResponse,
+                              Float32Array phaseResponse);
+
+};
+    </code></pre>
+</section>
+
+<section>
+    <p>Simple <code>BiquadFilterNode()</code> Example</p>
+    <a class="jsbin-embed" href="http://localhost:3000/kud/2/embed?js,output">JS Bin</a><script src="http://localhost:3000/js/embed.js"></script>
+</section>
+
+<section>
+    <h2>Thanks!</h2>
+</section>
+
+
+<!--  -->
+
+            </div>
+
+        </div>
+
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.min.js"></script>
+
+        <script>
+
+            // Full list of configuration options available here:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
+
+                theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+                transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+
+                // Parallax scrolling
+                // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+                // parallaxBackgroundSize: '2100px 900px',
+
+                // Optional libraries used to extend on reveal.js
+                dependencies: [
+                    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+                ]
+            });
+
+        </script>
+
+    </body>
 </html>

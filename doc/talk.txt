@@ -1,0 +1,96 @@
+TALK IDEAS:
+
+A quick peek at HTML5 web audio
+
+background:
+    programmer... php etc.
+    music tech.
+
+computer music/synthesis primer:
+    ibm dasiy...
+    csound
+    daw
+    advent of soft synths: vaz, generator/reaktor, rebirth, etc.
+
+so now...
+everything in js... atwoords law: http://blog.codinghorror.com/the-principle-of-least-power/
+today... we have html5! wweb audio api!
+
+in no particular order:
+new api.  explerimental. support?
+
+show w3c doc. woah.
+
+<audio> tag?
+samples buffers...
+
+!! example: play drum sounds on a keyboard. evented sample playback. open/close hat?
+
+audio graph:
+  - modular synths
+
+example 1
+record player -> amp -> speakers.
+
+example 2:
+sound 1 \
+         mixer -> amp -> speakers
+sound 2 /
+
+nodes
+
+context is everything:
+
+example:
+
+oscillator -> context.destination
+    simple demo:
+        osc.frequency.value
+        osc.detune.value -+100
+        oscillator.type = SINE, TRIANGLE, SQUARE, SAWTOOTH
+        periodicWave?
+        start, finish and onended event.
+
+    gain node.
+
+preamble:
+    synthesis...
+    modulars etc.
+synthesis
+    simple example of each with diagram:
+        am
+        fm
+        filtering
+        gain
+        effects.
+        etc.
+
+crappy nokia 3310 emulator?
+drum machine
+
+
+
+=======================
+
+clips
+
+http://localhost/osc/trigger/01.html
+
+
+1. http://jsbin.com/bozos/1/edit
+2. http://jsbin.com/yiran/1/edit
+
+http://jsbin.com/vowif/2/edit am?
+http://jsbin.com/qaqaka/1/edit nice am
+http://jsbin.com/tonanuwu/1/edit video games
+
+links:
+
+http://creativejs.com/resources/web-audio-api-a-bit-more-advanced/
+http://en.wikipedia.org/wiki/Fourier_series
+http://www.w3.org/TR/webaudio/#dfn-createPeriodicWave
+http://www.html5rocks.com/en/tutorials/webaudio/intro/
+
+fmmm
+
+    http://jsbin.com/jomupini/2/edit
